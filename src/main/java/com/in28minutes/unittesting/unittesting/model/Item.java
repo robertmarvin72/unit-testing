@@ -1,2 +1,62 @@
-package com.in28minutes.unittesting.unittesting.model;public class Item {
+package com.in28minutes.unittesting.unittesting.model;
+
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+import javax.persistence.*;
+
+@Entity
+public class Item {
+    @Id
+    @GeneratedValue
+    private int id;
+    private String name;
+    private int price;
+    private int quantity;
+
+    @Transient
+    private int value;
+    public Item(int id, String name, int price, int quantity) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    public Item() {
+
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                '}';
+    }
 }
