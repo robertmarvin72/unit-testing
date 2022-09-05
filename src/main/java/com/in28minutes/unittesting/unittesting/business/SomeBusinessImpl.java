@@ -2,6 +2,8 @@ package com.in28minutes.unittesting.unittesting.business;
 
 import com.in28minutes.unittesting.unittesting.data.SomeDataService;
 
+import java.util.Arrays;
+
 public class SomeBusinessImpl {
 
     private SomeDataService someDataService;
@@ -17,6 +19,10 @@ public class SomeBusinessImpl {
         }
 
         return sum;
+    }
+
+    public int calculateSumUsingFunctionalProgramming(int[] data ) {
+        return Arrays.stream(data).reduce(Integer::sum).orElse(0);
     }
 
     public int calculateSumUsingDataService() {
